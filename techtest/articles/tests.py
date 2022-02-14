@@ -29,6 +29,7 @@ class ArticleListViewTestCase(TestCase):
                     "title": "Fake Article 1",
                     "content": "",
                     "regions": [],
+                    "authors": []
                 },
                 {
                     "id": self.article_2.id,
@@ -46,6 +47,7 @@ class ArticleListViewTestCase(TestCase):
                             "name": "United Kingdom",
                         },
                     ],
+                    "authors": []
                 },
             ],
         )
@@ -80,6 +82,7 @@ class ArticleListViewTestCase(TestCase):
                     },
                     {"id": regions.all()[1].id, "code": "AU", "name": "Austria"},
                 ],
+                "authors": []
             },
             response.json(),
         )
@@ -114,6 +117,7 @@ class ArticleViewTestCase(TestCase):
                         "name": "United Kingdom",
                     },
                 ],
+                "authors": []
             },
         )
 
@@ -126,6 +130,7 @@ class ArticleViewTestCase(TestCase):
                 {"code": "US", "name": "United States of America"},
                 {"id": self.region_2.id},
             ],
+            "authors": []
         }
         response = self.client.put(
             self.url, data=json.dumps(payload), content_type="application/json"
@@ -153,6 +158,7 @@ class ArticleViewTestCase(TestCase):
                         "name": "United States of America",
                     },
                 ],
+                "authors": []
             },
             response.json(),
         )
@@ -172,6 +178,7 @@ class ArticleViewTestCase(TestCase):
                 "title": "Fake Article 1 (Modified)",
                 "content": "To be or not to be here",
                 "regions": [],
+                "authors": []
             },
             response.json(),
         )

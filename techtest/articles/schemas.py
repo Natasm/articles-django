@@ -4,8 +4,10 @@ from marshmallow import Schema
 from marshmallow.decorators import post_load
 
 from techtest.articles.models import Article
+from techtest.author.models import Author
 from techtest.regions.models import Region
 from techtest.regions.schemas import RegionSchema
+from techtest.author.schemas import AuthorSchema
 
 
 class ArticleSchema(Schema):
@@ -50,5 +52,5 @@ class ArticleSchema(Schema):
         if isinstance(regions, list):
             article.regions.set(regions)
         if isinstance(authors, list):
-            article.authors.set(regions)
+            article.authors.set(authors)
         return article
